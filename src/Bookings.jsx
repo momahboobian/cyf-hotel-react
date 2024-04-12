@@ -16,15 +16,13 @@ const Bookings = () => {
       console.log("Fetching information ...");
 
       try {
-        const response = await fetch(
-          "http://13.40.77.68:3001/bookings"
-        );
+        const response = await fetch("http://13.40.221.37:3001/bookings");
 
         if (!response.ok) {
           throw new Error(`HTTP error! Status code: ${response.status}`);
         }
         const data = await response.json();
-        
+
         setTimeout(() => {
           setBookings(data);
           setLoadingData(false);
@@ -35,7 +33,6 @@ const Bookings = () => {
         setLoadingData(false);
       }
     };
-
 
     fetchData();
   }, []);
